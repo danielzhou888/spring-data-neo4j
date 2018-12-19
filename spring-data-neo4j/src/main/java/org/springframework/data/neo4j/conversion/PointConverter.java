@@ -26,7 +26,12 @@ import org.springframework.data.geo.Point;
  *
  * @see Point
  * @author Jasper Blues
+ * @author Michael J. Simons
+ * @deprecated since 5.2. This maps Spring Data Points to composite attributes which are - in contrast to native points
+ *             - not index backed and thus slower in querying. Consider using Neo4j's native spatial types, available
+ *             since Neo4j 3.4.
  */
+@Deprecated
 public class PointConverter implements CompositeAttributeConverter<Point> {
 
 	@Override

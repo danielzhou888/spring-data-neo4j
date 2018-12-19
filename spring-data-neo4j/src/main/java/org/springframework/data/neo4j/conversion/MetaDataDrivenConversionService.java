@@ -49,6 +49,7 @@ public class MetaDataDrivenConversionService extends GenericConversionService {
 	 */
 	public MetaDataDrivenConversionService(MetaData metaData) {
 
+		System.out.println("getting a new one.");
 		for (ClassInfo classInfo : metaData.persistentEntities()) {
 			for (FieldInfo fieldInfo : classInfo.propertyFields()) {
 				if (fieldInfo.hasPropertyConverter()) {

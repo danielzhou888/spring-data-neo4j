@@ -22,6 +22,7 @@ import org.neo4j.ogm.types.spatial.CartesianPoint2d;
 import org.neo4j.ogm.types.spatial.CartesianPoint3d;
 import org.neo4j.ogm.types.spatial.GeographicPoint2d;
 import org.neo4j.ogm.types.spatial.GeographicPoint3d;
+import org.springframework.data.geo.Point;
 
 @NodeEntity
 public class SpatialDomain {
@@ -39,6 +40,12 @@ public class SpatialDomain {
 	private CartesianPoint2d cartesianPoint2d;
 
 	private CartesianPoint3d cartesianPoint3d;
+
+	private Point sdnPoint;
+
+	public Long getId() {
+		return id;
+	}
 
 	public String getName() {
 		return name;
@@ -78,5 +85,13 @@ public class SpatialDomain {
 
 	public void setCartesianPoint3d(CartesianPoint3d cartesianPoint3d) {
 		this.cartesianPoint3d = cartesianPoint3d;
+	}
+
+	public Point getSdnPoint() {
+		return sdnPoint;
+	}
+
+	public void setSdnPoint(Point sdnPoint) {
+		this.sdnPoint = sdnPoint;
 	}
 }

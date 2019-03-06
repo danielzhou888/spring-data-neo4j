@@ -35,7 +35,8 @@ class Neo4jOgmEntityInstantiatorConfigurationBean {
 			ObjectProvider<ConversionService> conversionServiceObjectProvider) {
 
 		MetaData metaData = sessionFactory.metaData();
-		ConversionService conversionService = new MetaDataDrivenConversionService(metaData);
+		ConversionService conversionService = conversionServiceObjectProvider
+				.getIfUnique(() -> new MetaDataDrivenConversionService(metaData));
 		metaData.registerConversionCallback(new ConversionServiceBasedConversionCallback(conversionService));
 		System.out.println(">>> " + conversionService.getClass());
 		sessionFactory.setEntityInstantiator(new Neo4jOgmEntityInstantiatorAdapter(mappingContext, conversionService));
